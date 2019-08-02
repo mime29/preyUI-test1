@@ -16,7 +16,7 @@
 		C029526E22F2B26D00618860 /* Bokeh.sks in Resources */ = {isa = PBXBuildFile; fileRef = C029526D22F2B26D00618860 /* Bokeh.sks */; };
 		C029527022F2C93D00618860 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029526F22F2C93D00618860 /* GradientView.swift */; };
 		C029527222F3DA1B00618860 /* TrianglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527122F3DA1B00618860 /* TrianglesView.swift */; };
-		C029527522F3F3B100618860 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C029527422F3F3B100618860 /* SpriteKit.framework */; };
+		C029527722F40A3500618860 /* BubblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527622F40A3500618860 /* BubblesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +32,7 @@
 		C029526F22F2C93D00618860 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		C029527122F3DA1B00618860 /* TrianglesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrianglesView.swift; sourceTree = "<group>"; };
 		C029527422F3F3B100618860 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
+		C029527622F40A3500618860 /* BubblesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,7 +40,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C029527522F3F3B100618860 /* SpriteKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -71,6 +71,7 @@
 				C029525B22F2AAD800618860 /* ViewController.swift */,
 				C029526F22F2C93D00618860 /* GradientView.swift */,
 				C029527122F3DA1B00618860 /* TrianglesView.swift */,
+				C029527622F40A3500618860 /* BubblesView.swift */,
 				C029526022F2AADA00618860 /* Assets.xcassets */,
 				C029526222F2AADA00618860 /* LaunchScreen.storyboard */,
 				C029526522F2AADA00618860 /* Info.plist */,
@@ -162,6 +163,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C029525C22F2AAD800618860 /* ViewController.swift in Sources */,
+				C029527722F40A3500618860 /* BubblesView.swift in Sources */,
 				C029527022F2C93D00618860 /* GradientView.swift in Sources */,
 				C029527222F3DA1B00618860 /* TrianglesView.swift in Sources */,
 				C029525A22F2AAD800618860 /* AppDelegate.swift in Sources */,

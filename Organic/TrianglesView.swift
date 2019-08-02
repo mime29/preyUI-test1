@@ -33,7 +33,7 @@ private extension TrianglesView {
         skScene.scaleMode = .aspectFill
         skScene.backgroundColor = .clear
         if let emitter = SKEmitterNode(fileNamed: "triangles.sks") {
-            emitter.position = CGPoint(x: spriteLeft.frame.origin.x, y: spriteLeft.frame.origin.y)
+            emitter.position = CGPoint(x: spriteLeft.frame.origin.x, y: spriteLeft.center.y)
             skScene.addChild(emitter)
             spriteLeft.presentScene(skScene)
         }
@@ -44,7 +44,7 @@ private extension TrianglesView {
         skScene.scaleMode = .aspectFill
         skScene.backgroundColor = .clear
         if let emitter = SKEmitterNode(fileNamed: "triangles.sks") {
-            emitter.position = CGPoint(x: spriteRight.frame.origin.x, y: spriteRight.frame.origin.y)
+            emitter.position = CGPoint(x: spriteRight.frame.origin.x, y: spriteRight.center.y)
             skScene.addChild(emitter)
             spriteRight.presentScene(skScene)
         }
@@ -53,9 +53,9 @@ private extension TrianglesView {
     func animateLeft(_ duration: TimeInterval,
                      afterDelay delay: TimeInterval,
                      completion: ((UIViewAnimatingPosition) -> Void)?) {
-        fadeIn(0.8, completion: nil)
+        fadeIn(0.5, afterDelay: delay, completion: nil)
         let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-            self.spriteLeft.transform = CGAffineTransform(translationX: -self.bounds.width/2, y: self.bounds.height/2)
+            self.spriteLeft.transform = CGAffineTransform(translationX: -self.bounds.width/1.2, y: self.bounds.height/4)
         }
         if let completion = completion {
             animator.addCompletion(completion)
@@ -67,7 +67,7 @@ private extension TrianglesView {
                       afterDelay delay: TimeInterval,
                       completion: ((UIViewAnimatingPosition) -> Void)?) {
         let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
-            self.spriteRight.transform = CGAffineTransform(translationX: self.bounds.width/2, y: -self.bounds.height/2)
+            self.spriteRight.transform = CGAffineTransform(translationX: self.bounds.width/1.2, y: -self.bounds.height/4)
         }
         if let completion = completion {
             animator.addCompletion(completion)
@@ -76,6 +76,7 @@ private extension TrianglesView {
     }
 
     func fadeIn(_ duration: TimeInterval,
+                afterDelay delay: TimeInterval,
                 completion: ((UIViewAnimatingPosition) -> Void)?) {
         spriteLeft.alpha = 0
         spriteRight.alpha = 0
@@ -86,7 +87,7 @@ private extension TrianglesView {
         if let completion = completion {
             animator.addCompletion(completion)
         }
-        animator.startAnimation()
+        animator.startAnimation(afterDelay: delay)
     }
 }
 
@@ -94,14 +95,15 @@ extension TrianglesView {
     func resetPosition() {
         spriteLeft.transform = CGAffineTransform.identity
         spriteRight.transform = CGAffineTransform.identity
-        //layer.removeAllAnimations()
+        spriteLeft.alpha = 0
+        spriteRight.alpha = 0
     }
 
-    func animate(_ completion: ((UIViewAnimatingPosition) -> Void)?) {
-        animateLeft(2.0, afterDelay: 0) { pos in
+    func animate(_ duration: TimeInterval, _ completion: ((UIViewAnimatingPosition) -> Void)?) {
+        animateLeft(duration, afterDelay: 0) { pos in
 
         }
-        animateRight(2.0, afterDelay: 0) { pos in
+        animateRight(duration, afterDelay: 0) { pos in
             completion?(pos)
         }
     }

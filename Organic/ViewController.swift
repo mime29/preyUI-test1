@@ -12,12 +12,14 @@ final class ViewController: UIViewController {
     @IBOutlet weak var testView: UIView!
     @IBOutlet weak var gradiantView: GradientView!
     @IBOutlet weak var trianglesView: TrianglesView!
+    @IBOutlet weak var bubblesView: BubblesView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         testView.layer.borderColor = UIColor.lightGray.cgColor
         testView.layer.borderWidth = 1
         trianglesView.config()
+        bubblesView.config()
     }
 
     override func viewDidLayoutSubviews() {
@@ -33,12 +35,24 @@ final class ViewController: UIViewController {
 // MARK: - Private methods
 private extension ViewController {
     func startLoop() {
-        gradiantView.resetPosition()
-        gradiantView.animateLeft(1, afterDelay: 2) { pos in
-            self.trianglesView.animate({ pos in
+        gradiantView.animateLeft(0.8, afterDelay: 1) { pos in
+            self.bubblesView.animate(2.5, afterDelay: 0.3, completion: { pos in
+                print("finished bubble as pos: \(pos.rawValue)")
+                self.gradiantView.animateReset(0.8, afterDelay: 0, completion: { pos in
+                    self.restartloop()
+                })
+            })
+            self.trianglesView.animate(1.2, { pos in
                 print("finished at pos: \(pos.rawValue)")
             })
         }
+    }
+
+    func restartloop() {
+        gradiantView.resetPosition()
+        bubblesView.resetPosition()
+        trianglesView.resetPosition()
+        startLoop()
     }
 }
 

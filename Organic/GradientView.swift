@@ -59,4 +59,16 @@ extension GradientView {
         }
         animator.startAnimation(afterDelay: delay)
     }
+
+    func animateReset(_ duration: TimeInterval,
+                     afterDelay delay: TimeInterval,
+                     completion: ((UIViewAnimatingPosition) -> Void)?) {
+        let animator = UIViewPropertyAnimator(duration: duration, curve: .linear) {
+            self.transform = CGAffineTransform.identity
+        }
+        if let completion = completion {
+            animator.addCompletion(completion)
+        }
+        animator.startAnimation(afterDelay: delay)
+    }
 }
