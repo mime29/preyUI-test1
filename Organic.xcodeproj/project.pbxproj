@@ -17,6 +17,8 @@
 		C029527022F2C93D00618860 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029526F22F2C93D00618860 /* GradientView.swift */; };
 		C029527222F3DA1B00618860 /* TrianglesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527122F3DA1B00618860 /* TrianglesView.swift */; };
 		C029527722F40A3500618860 /* BubblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527622F40A3500618860 /* BubblesView.swift */; };
+		C029527B22F4203200618860 /* BezierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527A22F4203200618860 /* BezierView.swift */; };
+		C029527D22F43D3100618860 /* BezierLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527C22F43D3100618860 /* BezierLinesView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		C029527122F3DA1B00618860 /* TrianglesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrianglesView.swift; sourceTree = "<group>"; };
 		C029527422F3F3B100618860 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		C029527622F40A3500618860 /* BubblesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblesView.swift; sourceTree = "<group>"; };
+		C029527A22F4203200618860 /* BezierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierView.swift; sourceTree = "<group>"; };
+		C029527C22F43D3100618860 /* BezierLinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierLinesView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,17 +70,14 @@
 		C029525822F2AAD800618860 /* Organic */ = {
 			isa = PBXGroup;
 			children = (
+				C029527922F4201200618860 /* PressButton */,
+				C029527822F41FF800618860 /* TestSubject */,
 				C029525922F2AAD800618860 /* AppDelegate.swift */,
 				C029525D22F2AAD800618860 /* Main.storyboard */,
 				C029525B22F2AAD800618860 /* ViewController.swift */,
-				C029526F22F2C93D00618860 /* GradientView.swift */,
-				C029527122F3DA1B00618860 /* TrianglesView.swift */,
-				C029527622F40A3500618860 /* BubblesView.swift */,
 				C029526022F2AADA00618860 /* Assets.xcassets */,
 				C029526222F2AADA00618860 /* LaunchScreen.storyboard */,
 				C029526522F2AADA00618860 /* Info.plist */,
-				C029526B22F2AC8700618860 /* triangles.sks */,
-				C029526D22F2B26D00618860 /* Bokeh.sks */,
 			);
 			path = Organic;
 			sourceTree = "<group>";
@@ -87,6 +88,27 @@
 				C029527422F3F3B100618860 /* SpriteKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C029527822F41FF800618860 /* TestSubject */ = {
+			isa = PBXGroup;
+			children = (
+				C029526F22F2C93D00618860 /* GradientView.swift */,
+				C029527122F3DA1B00618860 /* TrianglesView.swift */,
+				C029527622F40A3500618860 /* BubblesView.swift */,
+				C029526B22F2AC8700618860 /* triangles.sks */,
+				C029526D22F2B26D00618860 /* Bokeh.sks */,
+			);
+			path = TestSubject;
+			sourceTree = "<group>";
+		};
+		C029527922F4201200618860 /* PressButton */ = {
+			isa = PBXGroup;
+			children = (
+				C029527A22F4203200618860 /* BezierView.swift */,
+				C029527C22F43D3100618860 /* BezierLinesView.swift */,
+			);
+			path = PressButton;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +184,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C029527D22F43D3100618860 /* BezierLinesView.swift in Sources */,
 				C029525C22F2AAD800618860 /* ViewController.swift in Sources */,
+				C029527B22F4203200618860 /* BezierView.swift in Sources */,
 				C029527722F40A3500618860 /* BubblesView.swift in Sources */,
 				C029527022F2C93D00618860 /* GradientView.swift in Sources */,
 				C029527222F3DA1B00618860 /* TrianglesView.swift in Sources */,
