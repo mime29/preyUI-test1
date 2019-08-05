@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreImage
 
 @IBDesignable
 final class BezierView: UIView {
@@ -15,10 +16,10 @@ final class BezierView: UIView {
         didSet { updateLayer() }
     }
 
-    lazy var shapeLayer: CAShapeLayer = {
+    var shapeLayer: CAShapeLayer {
         let caLayer = CAShapeLayer()
         let path = UIBezierPath()
-        let offset:CGFloat = 15 //bounds.height * tan(angle)
+        let offset:CGFloat = bounds.height * tan(angle * .pi / 180)
         path.move(to: CGPoint(x: 0, y: bounds.height)) //bot left
         path.addLine(to: CGPoint(x: offset, y: 0))
         path.addLine(to: CGPoint(x: bounds.width, y: 0)) //top right
@@ -33,12 +34,15 @@ final class BezierView: UIView {
         layer.mask = caLayer
         //layer.addSublayer(caLayer)
         return caLayer
-    }()
+    }
 
-    lazy var leftLine: CAShapeLayer = {
+    private var theLeftLine: CAShapeLayer?
+    var leftLine: CAShapeLayer {
+        let image = UIImage()
+        
         let caLayer = CAShapeLayer()
         let path = UIBezierPath()
-        let offset:CGFloat = 15 //bounds.height * tan(angle)
+        let offset:CGFloat = bounds.height * tan(angle * .pi / 180)
         path.move(to: CGPoint(x: 0, y: bounds.height)) //bot left
         path.addLine(to: CGPoint(x: offset, y: 0))
         path.close()
@@ -49,12 +53,15 @@ final class BezierView: UIView {
         caLayer.lineWidth = 6
 
         //layer.mask = caLayer
+        if let line = theLeftLine {
+            line.removeFromSuperlayer()
+        }
         layer.addSublayer(caLayer)
         return caLayer
-    }()
+    }
 
     private func updateLayer() {
-        let shape = shapeLayer
-        let left = leftLine
+        let _ = shapeLayer
+        let _ = leftLine
     }
 }

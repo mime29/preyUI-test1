@@ -19,6 +19,8 @@
 		C029527722F40A3500618860 /* BubblesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527622F40A3500618860 /* BubblesView.swift */; };
 		C029527B22F4203200618860 /* BezierView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527A22F4203200618860 /* BezierView.swift */; };
 		C029527D22F43D3100618860 /* BezierLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527C22F43D3100618860 /* BezierLinesView.swift */; };
+		C054EA8F22F7D19200EE0248 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = C054EA8E22F7D19200EE0248 /* MyParticle.sks */; };
+		C054EA9122F7F3BC00EE0248 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054EA9022F7F3BB00EE0248 /* UIImage+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +39,8 @@
 		C029527622F40A3500618860 /* BubblesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BubblesView.swift; sourceTree = "<group>"; };
 		C029527A22F4203200618860 /* BezierView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierView.swift; sourceTree = "<group>"; };
 		C029527C22F43D3100618860 /* BezierLinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierLinesView.swift; sourceTree = "<group>"; };
+		C054EA8E22F7D19200EE0248 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		C054EA9022F7F3BB00EE0248 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +78,7 @@
 				C029527822F41FF800618860 /* TestSubject */,
 				C029525922F2AAD800618860 /* AppDelegate.swift */,
 				C029525D22F2AAD800618860 /* Main.storyboard */,
+				C054EA8E22F7D19200EE0248 /* MyParticle.sks */,
 				C029525B22F2AAD800618860 /* ViewController.swift */,
 				C029526022F2AADA00618860 /* Assets.xcassets */,
 				C029526222F2AADA00618860 /* LaunchScreen.storyboard */,
@@ -107,6 +112,7 @@
 			children = (
 				C029527A22F4203200618860 /* BezierView.swift */,
 				C029527C22F43D3100618860 /* BezierLinesView.swift */,
+				C054EA9022F7F3BB00EE0248 /* UIImage+Extension.swift */,
 			);
 			path = PressButton;
 			sourceTree = "<group>";
@@ -170,6 +176,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C029526422F2AADA00618860 /* LaunchScreen.storyboard in Resources */,
+				C054EA8F22F7D19200EE0248 /* MyParticle.sks in Resources */,
 				C029526E22F2B26D00618860 /* Bokeh.sks in Resources */,
 				C029526122F2AADA00618860 /* Assets.xcassets in Resources */,
 				C029525F22F2AAD800618860 /* Main.storyboard in Resources */,
@@ -187,6 +194,7 @@
 				C029527D22F43D3100618860 /* BezierLinesView.swift in Sources */,
 				C029525C22F2AAD800618860 /* ViewController.swift in Sources */,
 				C029527B22F4203200618860 /* BezierView.swift in Sources */,
+				C054EA9122F7F3BC00EE0248 /* UIImage+Extension.swift in Sources */,
 				C029527722F40A3500618860 /* BubblesView.swift in Sources */,
 				C029527022F2C93D00618860 /* GradientView.swift in Sources */,
 				C029527222F3DA1B00618860 /* TrianglesView.swift in Sources */,
