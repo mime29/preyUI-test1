@@ -25,7 +25,7 @@ extension UIImage {
             print("🧯 error: self must be backed by a cgImage: %@", self)
             return nil
         }
-        guard maskImage?.cgImage != nil else
+        guard maskImage == nil || (maskImage != nil && maskImage?.cgImage != nil) else
         {
             print("🧯 error: effectMaskImage must be backed by a cgImage: %@", maskImage as Any)
             return nil
@@ -60,11 +60,11 @@ extension UIImage {
 
         if (hasBlur || hasSaturationChange)
         {
-            var effectInBuffer: vImage_Buffer!
-            var scratchBuffer1: vImage_Buffer!
+            var effectInBuffer = vImage_Buffer()
+            var scratchBuffer1 = vImage_Buffer()
 
-            var inputBuffer: vImage_Buffer!
-            var outputBuffer: vImage_Buffer!
+            var inputBuffer = vImage_Buffer()
+            var outputBuffer = vImage_Buffer()
 
             var format = vImage_CGImageFormat(bitsPerComponent: 8,
                                               bitsPerPixel: 32,

@@ -21,6 +21,7 @@
 		C029527D22F43D3100618860 /* BezierLinesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C029527C22F43D3100618860 /* BezierLinesView.swift */; };
 		C054EA8F22F7D19200EE0248 /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = C054EA8E22F7D19200EE0248 /* MyParticle.sks */; };
 		C054EA9122F7F3BC00EE0248 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054EA9022F7F3BB00EE0248 /* UIImage+Extension.swift */; };
+		C054EA9322F8224900EE0248 /* BezierPath+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C054EA9222F8224900EE0248 /* BezierPath+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		C029527C22F43D3100618860 /* BezierLinesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BezierLinesView.swift; sourceTree = "<group>"; };
 		C054EA8E22F7D19200EE0248 /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		C054EA9022F7F3BB00EE0248 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		C054EA9222F8224900EE0248 /* BezierPath+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BezierPath+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				C029527A22F4203200618860 /* BezierView.swift */,
 				C029527C22F43D3100618860 /* BezierLinesView.swift */,
 				C054EA9022F7F3BB00EE0248 /* UIImage+Extension.swift */,
+				C054EA9222F8224900EE0248 /* BezierPath+Extension.swift */,
 			);
 			path = PressButton;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C054EA9322F8224900EE0248 /* BezierPath+Extension.swift in Sources */,
 				C029527D22F43D3100618860 /* BezierLinesView.swift in Sources */,
 				C029525C22F2AAD800618860 /* ViewController.swift in Sources */,
 				C029527B22F4203200618860 /* BezierView.swift in Sources */,
