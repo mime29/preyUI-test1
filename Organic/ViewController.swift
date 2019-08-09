@@ -12,7 +12,7 @@ final class ViewController: UIViewController {
 //TOP VIEW
     @IBOutlet weak var whiteBezier: BezierView!
     @IBOutlet weak var linesBezier: BezierLinesView!
-
+    @IBOutlet weak var linesBezierRight: BezierLinesView!
 
 
 //BOTTOM VIEW
@@ -21,6 +21,9 @@ final class ViewController: UIViewController {
     @IBOutlet weak var trianglesView: TrianglesView!
     @IBOutlet weak var bubblesView: BubblesView!
 
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,9 +50,11 @@ private extension ViewController {
 
     func initTopView(){
         linesBezier.alpha = 0
+        linesBezierRight.alpha = 0
         whiteBezier.alpha = 0
     }
 
+    // TOP - LEFT LINES
     func animateTopLeftLines(afterDelay delay: TimeInterval, completion: ((UIViewAnimatingPosition) -> Void)?) {
         showTopLeftLines(afterDelay: delay) { pos in
             self.hideTopLeftLines(afterDelay: 0, completion: completion)
@@ -58,7 +63,7 @@ private extension ViewController {
 
     func showTopLeftLines(afterDelay delay: TimeInterval, completion: ((UIViewAnimatingPosition) -> Void)?) {
         let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
-            self.linesBezier.alpha = 1
+            self.linesBezier.alpha = 0.5
             self.linesBezier.transform = CGAffineTransform(translationX: 150, y: 150)
         }
         animator.addCompletion { pos in
@@ -77,6 +82,37 @@ private extension ViewController {
         }
         animator.startAnimation(afterDelay: delay)
     }
+
+    // TOP - BOTTOM LINES
+    func animateTopRightLines(afterDelay delay: TimeInterval, completion: ((UIViewAnimatingPosition) -> Void)?) {
+        showTopRightLines(afterDelay: delay) { pos in
+            self.hideTopRightLines(afterDelay: 0, completion: completion)
+        }
+    }
+
+    func showTopRightLines(afterDelay delay: TimeInterval, completion: ((UIViewAnimatingPosition) -> Void)?) {
+        let animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut) {
+            self.linesBezierRight.alpha = 0.5
+            self.linesBezierRight.transform = CGAffineTransform(translationX: -150, y: -150)
+        }
+        animator.addCompletion { pos in
+            completion?(pos)
+        }
+        animator.startAnimation(afterDelay: delay)
+    }
+
+    func hideTopRightLines(afterDelay delay: TimeInterval, completion: ((UIViewAnimatingPosition) -> Void)?) {
+        let animator = UIViewPropertyAnimator(duration: 1, curve: .easeOut) {
+            self.linesBezierRight.alpha = 0
+            self.linesBezierRight.transform = CGAffineTransform(translationX: -250, y: -250)
+        }
+        animator.addCompletion { pos in
+            completion?(pos)
+        }
+        animator.startAnimation(afterDelay: delay)
+    }
+
+    // WHITE LAYER BLINK
 
     func blink(afterDelay delay: TimeInterval, completion: ((UIViewAnimatingPosition) -> Void)?) {
         let animator = UIViewPropertyAnimator(duration: 0.1, curve: .easeIn) {
@@ -97,11 +133,14 @@ private extension ViewController {
                 })
             }
         }
+        animateTopRightLines(afterDelay: 1, completion: nil)
     }
 
     func resetTopLoop() {
         linesBezier.transform = .identity
         linesBezier.alpha = 0
+        linesBezierRight.transform = .identity
+        linesBezierRight.alpha = 0
         startTopLoop()
     }
 

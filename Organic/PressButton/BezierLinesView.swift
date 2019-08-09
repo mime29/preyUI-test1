@@ -17,22 +17,33 @@ final class BezierLinesView: UIView {
 
     lazy var shapeLayer: CAShapeLayer = {
         let caLayer = CAShapeLayer()
-        let offset:CGFloat = 100 //bounds.height * tan(angle)
+        let shadowLayer = CAShapeLayer()
+        let offset:CGFloat = 120 //bounds.height * tan(angle)
         let nbLines = 4
         let finalPath = UIBezierPath()
+        let shadowPath = UIBezierPath()
         let spacer = bounds.width / CGFloat(nbLines)
         for i in 0...nbLines {
             let aLine = line(startX: spacer * CGFloat(i), offset: offset)
             finalPath.append(aLine)
+            shadowPath.append(aLine)
         }
 
-        caLayer.path = finalPath.cgPath
-        //caLayer.masksToBounds = true
-        //caLayer.fillColor = UIColor(red: 40, green: 30, blue: 40, alpha: 0.5).cgColor
-        caLayer.strokeColor = UIColor.blue.cgColor
-        caLayer.lineWidth = 2
+        shadowLayer.path = shadowPath.cgPath
+        shadowLayer.lineCap = .round
+        shadowLayer.strokeColor = UIColor.white.cgColor
+        shadowLayer.lineWidth = 2
+        shadowLayer.shadowColor = UIColor.white.cgColor
+        shadowLayer.shadowOpacity = 0.9
+        shadowLayer.shadowRadius = 5
+        shadowLayer.shadowOffset = CGSize(width: 0, height: 0)
 
-        //layer.mask = caLayer
+        caLayer.path = finalPath.cgPath
+        caLayer.lineCap = .round
+        caLayer.strokeColor = UIColor.clear.cgColor
+        caLayer.lineWidth = 1
+
+        layer.addSublayer(shadowLayer)
         layer.addSublayer(caLayer)
         return caLayer
     }()
@@ -41,11 +52,10 @@ final class BezierLinesView: UIView {
         let path = UIBezierPath()
         path.move(to: CGPoint(x: startX, y: 0)) //top left
         path.addLine(to: CGPoint(x: startX + offset, y: bounds.height)) //bot right
-        path.close()
         return path
     }
 
     func updateLayer() {
-        let shape = shapeLayer
+        let _ = shapeLayer
     }
 }

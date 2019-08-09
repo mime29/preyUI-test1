@@ -16,6 +16,15 @@ final class BezierView: UIView {
         didSet { updateLayer() }
     }
 
+    @IBInspectable var asMask: Bool = false {
+        didSet { updateLayer() }
+    }
+
+    @IBInspectable var hasLeftLine: Bool = false {
+        didSet { updateLayer() }
+    }
+
+    private var theShapeLayer: CAShapeLayer?
     var shapeLayer: CAShapeLayer {
         let caLayer = CAShapeLayer()
         let path = UIBezierPath()
@@ -27,44 +36,54 @@ final class BezierView: UIView {
         path.close()
 
         caLayer.path = path.cgPath
-        //caLayer.masksToBounds = true
-        //caLayer.fillColor = UIColor(red: 40, green: 30, blue: 40, alpha: 0.5).cgColor
+        caLayer.masksToBounds = false
         caLayer.strokeColor = nil
 
-        layer.mask = caLayer
-        //layer.addSublayer(caLayer)
+        if let line = theShapeLayer {
+            line.removeFromSuperlayer()
+            theShapeLayer = nil
+        }
+
+        if asMask {
+            layer.mask = caLayer
+        } else {
+            caLayer.fillColor = UIColor(red: 181/255, green: 163/255, blue: 225/255, alpha: 0.32).cgColor
+            layer.addSublayer(caLayer)
+        }
+        layer.masksToBounds = false
+
+        theShapeLayer = caLayer
         return caLayer
     }
 
-    private var theLeftLine: CALayer?
+    private var theLeftLine: CAShapeLayer?
     var leftLine: CALayer {
-        let caLayer = CALayer()
+        let caLayer = CAShapeLayer()
         let path = UIBezierPath()
         let offset:CGFloat = bounds.height * tan(angle * .pi / 180)
         path.move(to: CGPoint(x: 0, y: bounds.height)) //bot left
         path.addLine(to: CGPoint(x: offset, y: 0))
-        path.close()
 
         if let line = theLeftLine {
             line.removeFromSuperlayer()
+            theLeftLine = nil
         }
 
-        // Make an UIImage from BezierPath
-        let image = path.strokeImage(strokeColor: UIColor.white, fillColor: UIColor.white)
-        // get a blurry image
-        if let blurryImage = image?.blurred(with: 30, tintColor: nil, saturationDeltaFactor: 2) {
-            let myImage = blurryImage.cgImage
-            let pathSize = path.sizeIncludingLineWidth()
-            let scale: CGFloat = bounds.height / pathSize.height
-            caLayer.frame = CGRect(x: -38,//pathSize.width * scale,
-                                   y: 0,
-                                   width: pathSize.width * scale,
-                                   height: pathSize.height * scale)
-            caLayer.contents = myImage
+        caLayer.path = path.cgPath
+        caLayer.strokeColor = UIColor.white.cgColor
+        caLayer.lineWidth = 3
+        caLayer.lineCap = .round
+        caLayer.cornerRadius = 1.5
+        let shadowColor = UIColor(red: 130/255, green: 200/255, blue: 245/255, alpha: 1).cgColor
+        caLayer.shadowColor = shadowColor
+        caLayer.shadowOffset = CGSize(width: 0, height: 0)
+        caLayer.shadowOpacity = 1
+        caLayer.shadowRadius = 6
+
+        if hasLeftLine {
             layer.addSublayer(caLayer)
             theLeftLine = caLayer
         }
-
         return caLayer
     }
 

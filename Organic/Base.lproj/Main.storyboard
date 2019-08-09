@@ -25,10 +25,22 @@
                                         <rect key="frame" x="10" y="92" width="355" height="150"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d9S-4M-kNk" customClass="BezierLinesView" customModule="Organic" customModuleProvider="target">
-                                                <rect key="frame" x="-22.5" y="-139.5" width="100" height="128.5"/>
+                                                <rect key="frame" x="-42.5" y="-135.5" width="100" height="120.5"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="128" id="Ivp-JY-Ef1"/>
+                                                    <constraint firstAttribute="height" constant="120" id="Ivp-JY-Ef1"/>
                                                     <constraint firstAttribute="width" constant="100" id="h4c-eD-bNK"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="angle">
+                                                        <real key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C0O-8v-8ni" userLabel="Lines Bezier Right" customClass="BezierLinesView" customModule="Organic" customModuleProvider="target">
+                                                <rect key="frame" x="247.5" y="165" width="100" height="120"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="120" id="CEz-ff-use"/>
+                                                    <constraint firstAttribute="width" constant="100" id="Rbu-I3-g66"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="angle">
@@ -38,7 +50,7 @@
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vCa-cl-Sh6" customClass="BezierView" customModule="Organic" customModuleProvider="target">
                                                 <rect key="frame" x="20" y="45" width="315" height="60"/>
-                                                <color key="backgroundColor" red="0.70855937755271181" green="0.63829962929634199" blue="0.88214000773756474" alpha="0.3221318493150685" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="60" id="2cj-1E-diJ"/>
                                                 </constraints>
@@ -46,6 +58,8 @@
                                                     <userDefinedRuntimeAttribute type="number" keyPath="angle">
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="asMask" value="NO"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="hasLeftLine" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Press any key/button." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Maa-Ob-Ngu">
@@ -61,26 +75,26 @@
                                                     <constraint firstAttribute="height" constant="60" id="MSY-pW-CP2"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
-                                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="angle">
                                                         <real key="value" value="15"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="asMask" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="noY-dP-wEE" firstAttribute="centerY" secondItem="vCa-cl-Sh6" secondAttribute="centerY" id="982-ec-rce"/>
-                                            <constraint firstItem="d9S-4M-kNk" firstAttribute="centerX" secondItem="2sK-7W-gdE" secondAttribute="centerX" constant="-150" id="D0U-0Q-oy7"/>
+                                            <constraint firstItem="d9S-4M-kNk" firstAttribute="centerX" secondItem="2sK-7W-gdE" secondAttribute="centerX" constant="-170" id="D0U-0Q-oy7"/>
                                             <constraint firstAttribute="trailing" secondItem="vCa-cl-Sh6" secondAttribute="trailing" constant="20" id="GcQ-HZ-aqv"/>
                                             <constraint firstItem="Maa-Ob-Ngu" firstAttribute="centerX" secondItem="2sK-7W-gdE" secondAttribute="centerX" id="IeJ-Pc-Mkp"/>
                                             <constraint firstItem="vCa-cl-Sh6" firstAttribute="leading" secondItem="2sK-7W-gdE" secondAttribute="leading" constant="20" id="MY3-Fb-bX9"/>
                                             <constraint firstItem="noY-dP-wEE" firstAttribute="height" secondItem="vCa-cl-Sh6" secondAttribute="height" id="Nv2-B0-QIj"/>
+                                            <constraint firstItem="C0O-8v-8ni" firstAttribute="centerY" secondItem="2sK-7W-gdE" secondAttribute="centerY" constant="150" id="TKQ-UU-AbJ"/>
                                             <constraint firstItem="vCa-cl-Sh6" firstAttribute="centerY" secondItem="2sK-7W-gdE" secondAttribute="centerY" id="YMa-BK-Ve7"/>
                                             <constraint firstItem="noY-dP-wEE" firstAttribute="centerX" secondItem="vCa-cl-Sh6" secondAttribute="centerX" id="iv2-Ed-CVD"/>
                                             <constraint firstAttribute="height" constant="150" id="kt7-5a-j8d"/>
                                             <constraint firstItem="noY-dP-wEE" firstAttribute="width" secondItem="vCa-cl-Sh6" secondAttribute="width" id="n1i-rg-AdG"/>
+                                            <constraint firstItem="C0O-8v-8ni" firstAttribute="centerX" secondItem="2sK-7W-gdE" secondAttribute="centerX" constant="120" id="rqH-zu-Kaj"/>
                                             <constraint firstItem="d9S-4M-kNk" firstAttribute="centerY" secondItem="2sK-7W-gdE" secondAttribute="centerY" constant="-150" id="y4H-zT-3tX"/>
                                             <constraint firstItem="Maa-Ob-Ngu" firstAttribute="centerY" secondItem="2sK-7W-gdE" secondAttribute="centerY" id="yjn-Sm-VPi"/>
                                         </constraints>
@@ -218,6 +232,7 @@
                         <outlet property="bubblesView" destination="puD-MR-nBq" id="xK4-jm-JCb"/>
                         <outlet property="gradiantView" destination="Zyy-C3-8YS" id="S2R-Ib-Ehk"/>
                         <outlet property="linesBezier" destination="d9S-4M-kNk" id="kQL-kE-uCd"/>
+                        <outlet property="linesBezierRight" destination="C0O-8v-8ni" id="XAg-eG-HHx"/>
                         <outlet property="testView" destination="Umk-dG-w3n" id="Gjg-ye-KPk"/>
                         <outlet property="trianglesView" destination="Di8-Zr-Rmp" id="301-e6-SF3"/>
                         <outlet property="whiteBezier" destination="noY-dP-wEE" id="6Yl-Va-Nhc"/>
